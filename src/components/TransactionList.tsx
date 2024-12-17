@@ -19,7 +19,7 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions }) => {
   };
 
   return (
-    <div className="flex h-[15rem] flex-col justify-center space-y-4 p-4">
+    <div className="flex h-[15rem] w-full flex-col justify-center space-y-4 rounded-[25px] border border-[#c4c4c4] bg-white p-4">
       {transactions.map((transaction) => (
         <div
           key={transaction.title}
