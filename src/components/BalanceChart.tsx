@@ -1,13 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import type { ApexOptions } from "apexcharts";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const BalanceChart = () => {
-  const chartConfig = {
-    type: "line",
-    height: 320,
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const chartConfig: { options: ApexOptions; series: ApexAxisChartSeries } = {
     series: [
       {
         name: "Balance",
@@ -16,6 +21,8 @@ const BalanceChart = () => {
     ],
     options: {
       chart: {
+        type: "area",
+        height: 320,
         toolbar: {
           show: false,
         },
@@ -87,9 +94,22 @@ const BalanceChart = () => {
     },
   };
 
+  if (!isClient) {
+    return (
+      <div className="flex h-full items-center justify-center rounded-[25px] bg-white shadow-sm">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="h-full rounded-[25px] bg-white shadow-sm">
-      <Chart {...chartConfig} type="area" />
+      <Chart
+        options={chartConfig.options}
+        series={chartConfig.series}
+        type="area"
+        height={320}
+      />
     </div>
   );
 };

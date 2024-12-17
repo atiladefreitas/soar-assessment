@@ -1,10 +1,16 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const ActivityChart = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const chartConfig = {
     type: "bar",
     height: 240,
@@ -107,10 +113,14 @@ const ActivityChart = () => {
     },
   };
 
+  if (!isClient) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="bg-white">
       <div className="px-2 pb-0">
-        <Chart {...chartConfig} type="bar" />
+        {isClient && <Chart {...chartConfig} type="bar" />}
       </div>
     </div>
   );
