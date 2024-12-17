@@ -1,106 +1,77 @@
-interface ICardProps {
-  variant?: "dark" | "light";
-}
-function CardComponent({ variant = "dark" }: ICardProps) {
-  return (
-    <div
-      className={`w-full overflow-hidden rounded-[25px] border border-[#c4c4c4] ${variant === "dark" ? "bg-[#5B5A6F]" : "bg-white"}`}
-    >
-      <span className="flex p-6">
-        <div>
-          <p className={`text-sm text-white/80`}>balance</p>
-          <p
-            className={`text-xl font-bold ${variant === "dark" ? "text-white" : "text-gray-800"}`}
-          >
-            $5,756
-          </p>
-        </div>
-      </span>
+import ActivityChart from "@/components/ActivityChart";
+import BalanceChart from "@/components/BalanceChart";
+import { CreditCard } from "@/components/CreditCard";
+import ExpenseChart from "@/components/ExpensesCharts";
+import TransactionList from "@/components/TransactionList";
+import QuickTransfer from "@/components/ui/QuickTransfer";
+import { transactions } from "@/mocks/transctions";
+import { CreditCard as CardIcon } from "lucide-react";
+import Image from "next/image";
 
-      <span className="flex items-center justify-between p-6">
-        <div>
-          <p className={`text-sm uppercase text-white/80`}>card holder</p>
-          <p className={`font-bold text-white`}>Eddy Cusuma</p>
-        </div>
-
-        <div>
-          <p className={`text-sm uppercase text-white/80`}>valid thru</p>
-          <p className={`font-bold text-white`}>12/22</p>
-        </div>
-      </span>
-
-      <div
-        className={`min-h-[2rem] ${variant === "dark" ? "bg-gray-800" : "border-t-[2px] bg-white"} p-6`}
-      >
-        <p
-          className={`text-2xl ${variant === "dark" ? "text-white" : "text-gray-800"}`}
-        >
-          3778 **** **** 1234
-        </p>
-      </div>
-    </div>
-  );
-}
 function Home() {
   return (
-    <section className="flex w-full flex-col gap-6 overflow-y-scroll text-gray-800">
-      <div className="grid grid-cols-3 flex-row gap-6">
-        <div className="col-span-2 flex-col gap-2">
+    <section className="flex w-full flex-col gap-6 text-gray-800">
+      <div className="grid grid-cols-1 flex-row gap-6 md:grid-cols-3">
+        <div className="flex flex-col justify-between gap-2 md:col-span-2">
           <div className="flex items-center justify-between">
-            <h1 className="mb-4 text-2xl font-bold text-gray-800">My Cards</h1>
+            <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">My Cards</h1>
             <h1 className="mb-4 text-xl font-bold text-gray-800">See all</h1>
           </div>
 
-          <div className="flex gap-6">
-            <CardComponent />
-            <CardComponent variant="light" />
+          <div className="flex gap-4 overflow-x-scroll">
+            <CreditCard />
+            <CreditCard variant="light" />
           </div>
         </div>
 
-        <div className="flex flex-col">
-          <h1 className="mb-4 text-2xl font-bold text-gray-800">
+        <div className="flex w-full flex-col justify-between">
+          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
             Recent Transactions
           </h1>
 
-          <div className="rounded-[25px] border border-[#c4c4c4] bg-white p-6">
-            <p>deposit</p>
+          <TransactionList transactions={transactions} />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 flex-row gap-6 md:grid-cols-3">
+        <div className="md:col-span-2">
+          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
+            Weekly activity
+          </h1>
+
+          <div className="flex min-h-[20rem] w-full flex-col justify-center rounded-[25px] border bg-white">
+            <ActivityChart />
+          </div>
+        </div>
+
+        <div className="w-full">
+          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
+            Expense Statistics
+          </h1>
+
+          <div className="flex min-h-[20rem] w-full items-center justify-center rounded-[25px] border bg-white">
+            <ExpenseChart />
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 flex-row gap-6">
-        <div className="col-span-2">
-          <h1 className="mb-4 text-2xl font-bold text-gray-800">
-            Weekly activity
-          </h1>
-
-          <div className="min-h-[20rem] w-full rounded-[25px] border bg-white"></div>
-        </div>
-
+      <div className="grid grid-cols-1 flex-row gap-6 md:grid-cols-3">
         <div className="">
-          <h1 className="mb-4 text-2xl font-bold text-gray-800">
-            Expense Statistics
-          </h1>
-
-          <div className="min-h-[20rem] w-full rounded-[25px] border bg-white"></div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 flex-row gap-6">
-        <div className="">
-          <h1 className="mb-4 text-2xl font-bold text-gray-800">
+          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
             Quick Transfer
           </h1>
 
-          <div className="min-h-[20rem] w-full rounded-[25px] border bg-white"></div>
+          <div className="flex min-h-[20rem] w-full flex-col items-center justify-center rounded-[25px] border bg-white p-6">
+            <QuickTransfer />
+          </div>
         </div>
 
-        <div className="col-span-2">
-          <h1 className="mb-4 text-2xl font-bold text-gray-800">
+        <div className="h-[20rem] items-center justify-center md:col-span-2">
+          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
             Balance History
           </h1>
 
-          <div className="min-h-[20rem] w-full rounded-[25px] border bg-white"></div>
+          <BalanceChart />
         </div>
       </div>
     </section>
