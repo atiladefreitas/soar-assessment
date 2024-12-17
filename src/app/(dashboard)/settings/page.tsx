@@ -34,15 +34,20 @@ function Settings() {
     country: "USA",
   };
 
-  const [formData, setFormData] = useState<FormData>(() => {
-    const savedData = localStorage.getItem("userData");
-    return savedData ? JSON.parse(savedData) : initialData;
-  });
-
+  const [formData, setFormData] = useState<FormData>(initialData);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("userData", JSON.stringify(formData));
+    const savedData = localStorage.getItem("userData");
+    if (savedData) {
+      setFormData(JSON.parse(savedData));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("userData", JSON.stringify(formData));
+    }
   }, [formData]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -138,7 +143,7 @@ function Settings() {
               width={80}
               height={50}
               alt="Main User"
-              src="/api/placeholder/80/50"
+              src="/users/main-user.png"
               className="rounded-full"
             />
             <div
