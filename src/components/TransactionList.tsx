@@ -1,10 +1,12 @@
 import type React from "react";
 
 interface Transaction {
+  id: number;
   title: string;
   date: string;
   icon: string;
   amount: string;
+  bg: string;
 }
 
 interface TransactionListProps {
@@ -19,14 +21,19 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions }) => {
   };
 
   return (
-    <div className="flex h-[15rem] w-full flex-col justify-center space-y-4 rounded-[25px] border border-[#c4c4c4] bg-white p-4">
+    <div className="flex h-[15rem] w-full flex-col space-y-4 overflow-y-auto rounded-[25px] border bg-white p-4">
       {transactions.map((transaction) => (
         <div
-          key={transaction.title}
+          key={transaction.id}
           className="flex items-center justify-between gap-4"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-50">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-full"
+              style={{
+                backgroundColor: transaction.bg,
+              }}
+            >
               <img
                 width={30}
                 height={30}

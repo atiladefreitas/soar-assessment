@@ -5,8 +5,6 @@ import ExpenseChart from "@/components/ExpensesCharts";
 import TransactionList from "@/components/TransactionList";
 import QuickTransfer from "@/components/ui/QuickTransfer";
 import { transactions } from "@/mocks/transctions";
-import { CreditCard as CardIcon } from "lucide-react";
-import Image from "next/image";
 
 function Home() {
   return (
@@ -15,7 +13,9 @@ function Home() {
         <div className="flex flex-col justify-between gap-2 md:col-span-2">
           <div className="flex items-center justify-between">
             <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">My Cards</h1>
-            <h1 className="mb-4 text-xl font-bold text-gray-800">See all</h1>
+            <h1 className="mb-4 cursor-pointer text-xl font-bold text-[#343C6A] transition-all hover:-translate-y-1 hover:text-gray-600">
+              See all
+            </h1>
           </div>
 
           <div className="flex gap-4 overflow-x-scroll">

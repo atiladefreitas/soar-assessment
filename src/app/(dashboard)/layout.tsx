@@ -1,7 +1,10 @@
 "use client";
 import { useState } from "react";
 import { BellDot, Menu, Search, Settings, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { SidebarItems } from "@/mocks/sidebar";
+import Link from "next/link";
 
 interface IPageProps {
   children: React.ReactNode;
@@ -14,6 +17,8 @@ function Layout({ children }: IPageProps) {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const pathname = usePathname();
+
   return (
     <section className="flex h-screen w-screen bg-white md:bg-[#F5F7FA]">
       <aside
@@ -24,7 +29,15 @@ function Layout({ children }: IPageProps) {
         }`}
       >
         <div className="flex items-center justify-between p-4 md:p-6">
-          <p>Title goes here</p>
+          <h1 className="flex items-center gap-2 text-2xl font-bold text-[#343C6A]">
+            <Image
+              width={20}
+              height={20}
+              alt="Main User"
+              src="/icons/task-icon.png"
+            />
+            Soar Task
+          </h1>
           <button
             type="button"
             onClick={toggleMenu}
@@ -34,6 +47,36 @@ function Layout({ children }: IPageProps) {
             <X size={24} />
           </button>
         </div>
+
+        <ul className="space-y-2">
+          {SidebarItems.map((item, index) => {
+            const Icon = item.icon;
+            const isActive = pathname === item.href;
+
+            return (
+              <li key={item.label}>
+                <Link
+                  href={item.href}
+                  className={`flex h-[3rem] items-center space-x-2 rounded-lg transition-colors duration-200 ${
+                    isActive
+                      ? "bg-gray-50 font-bold text-gray-900"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                >
+                  <div
+                    className={`h-full w-1 rounded-r-2xl ${isActive ? "bg-black" : "bg-transparent"}`}
+                  />
+                  <Icon
+                    size={20}
+                    className={isActive ? "text-gray-900" : "text-gray-500"}
+                    strokeWidth={isActive ? 3 : 2}
+                  />
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </aside>
 
       <main className="w-full overflow-y-scroll">
@@ -51,7 +94,7 @@ function Layout({ children }: IPageProps) {
               Overview
             </p>
             <div className="flex items-center justify-end gap-4 md:w-full">
-              <div className="hidden w-full max-w-md items-center gap-2 rounded-full bg-[#F5F7FA] px-6 py-3 md:flex">
+              <div className="hidden w-full max-w-md items-center gap-2 rounded-full bg-[#F5F7FA] px-6 py-2 md:flex">
                 <Search className="text-[#718EBF]" />
                 <input
                   placeholder="Search for something"
@@ -59,11 +102,11 @@ function Layout({ children }: IPageProps) {
                 />
               </div>
 
-              <div className="hidden h-[3rem] w-[3rem] items-center justify-center rounded-full bg-[#F5F7FA] md:flex">
+              <div className="hidden h-[2.8rem] w-[2.8rem] items-center justify-center rounded-full bg-[#F5F7FA] md:flex">
                 <Settings color={"#718EBF"} />
               </div>
 
-              <div className="hidden h-[3rem] w-[3rem] items-center justify-center rounded-full bg-[#F5F7FA] md:flex">
+              <div className="hidden h-[2.8rem] w-[2.8rem] items-center justify-center rounded-full bg-[#F5F7FA] md:flex">
                 <BellDot color={"#396AFF"} />
               </div>
               <Image
@@ -71,7 +114,7 @@ function Layout({ children }: IPageProps) {
                 height={35}
                 alt="Main User"
                 src="/users/main-user.png"
-                className="md:w-[60px]"
+                className="md:w-[50px]"
               />
             </div>
           </div>

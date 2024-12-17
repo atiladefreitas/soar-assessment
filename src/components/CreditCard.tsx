@@ -7,7 +7,7 @@ interface ICardProps {
 export function CreditCard({ variant = "dark" }: ICardProps) {
   return (
     <div
-      className={`flex h-[15rem] w-full flex-col justify-between overflow-hidden rounded-[20px] border ${
+      className={`flex h-[15rem] w-full min-w-[22rem] flex-col justify-between overflow-hidden rounded-[20px] border ${
         variant === "dark"
           ? "bg-gradient-to-br from-[#5B5A6F] to-[#000000] text-white"
           : "bg-white text-[#343C6A]"

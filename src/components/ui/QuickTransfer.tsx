@@ -72,7 +72,7 @@ const QuickTransfer = () => {
           <button
             type="button"
             onClick={handleSend}
-            className="flex gap-2 rounded-full bg-black px-6 py-2 text-white"
+            className="flex gap-2 rounded-full bg-black px-6 py-2 text-white transition-all hover:scale-105 hover:bg-gray-700"
           >
             Send
             <Send />
