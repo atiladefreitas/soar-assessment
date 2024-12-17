@@ -1,7 +1,7 @@
-import ActivityChart from "@/components/ActivityChart";
-import BalanceChart from "@/components/BalanceChart";
+import ActivityChart from "@/components/charts/ActivityChart";
+import BalanceChart from "@/components/charts/BalanceChart";
 import { CreditCard } from "@/components/CreditCard";
-import ExpenseChart from "@/components/ExpensesCharts";
+import ExpenseChart from "@/components/charts/ExpensesCharts";
 import TransactionList from "@/components/TransactionList";
 import QuickTransfer from "@/components/ui/QuickTransfer";
 import { transactions } from "@/mocks/transctions";
