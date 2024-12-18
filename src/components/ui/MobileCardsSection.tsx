@@ -7,7 +7,7 @@ const MobileCardsSection = () => {
   return (
     <div className="block md:hidden">
       <div className="mb-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-[#343C6A]">My Cards</h1>
+        <h1 className="text-2xl font-bold text-main">My Cards</h1>
         <span className="text-xl font-bold text-gray-800">See all</span>
       </div>
 

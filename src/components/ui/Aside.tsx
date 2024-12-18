@@ -24,7 +24,7 @@ export default function Aside({ isMobileMenuOpen, toggleMenu }: AsideProps) {
         }`}
       >
         <div className="flex items-center justify-between p-4 md:p-6">
-          <h1 className="flex items-center gap-2 text-2xl font-bold text-[#343C6A]">
+          <h1 className="flex items-center gap-2 text-2xl font-bold text-main">
             <Image
               width={20}
               height={20}

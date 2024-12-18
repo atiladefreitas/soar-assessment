@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 import type { ChangeEvent, FormEvent, KeyboardEvent } from "react";
-
 import { Pencil } from "lucide-react";
 import Image from "next/image";
 import Swal from "sweetalert2";
@@ -115,23 +113,23 @@ function Settings() {
   };
 
   const inputstyle =
-    "w-full rounded-xl border border-[#DFEAF2] px-3 py-2 text-[#718EBF] focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-gray-400";
+    "w-full rounded-xl border border-card-border px-3 py-2 text-input-icon focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 hover:border-gray-400";
 
   return (
     <section className="w-full rounded-[25px] bg-white md:p-6">
       <div className="flex w-full gap-4 border-b">
         <span className="flex flex-col gap-2">
-          <p className="mx-4 font-semibold text-[#232323]">Edit Profile</p>
+          <p className="mx-4 font-semibold text-text-primary">Edit Profile</p>
           <div className="h-1 w-full rounded-t-xl bg-black" />
         </span>
 
         <span className="flex cursor-pointer flex-col gap-2 transition-opacity hover:opacity-80">
-          <p className="mx-4 text-[#718EBF]">Preferences</p>
+          <p className="mx-4 text-text-secondary">Preferences</p>
           <div className="h-1 w-full rounded-t-xl bg-transparent" />
         </span>
 
         <span className="flex cursor-pointer flex-col gap-2 transition-opacity hover:opacity-80">
-          <p className="mx-4 text-[#718EBF]">Security</p>
+          <p className="mx-4 text-text-secondary">Security</p>
           <div className="h-1 w-full rounded-t-xl bg-transparent" />
         </span>
       </div>
@@ -158,191 +156,42 @@ function Settings() {
 
         <form onSubmit={handleSubmit} className="mt-8 w-full space-y-6">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="space-y-2">
-              <label
-                htmlFor="yourName"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="yourName"
-                name="yourName"
-                value={formData.yourName}
-                onChange={handleChange}
-                placeholder="Enter your name"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="userName"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                User Name
-              </label>
-              <input
-                type="text"
-                id="userName"
-                name="userName"
-                value={formData.userName}
-                onChange={handleChange}
-                placeholder="Enter username"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter email"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Enter password"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="dateOfBirth"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Date of Birth
-              </label>
-              <input
-                type="date"
-                id="dateOfBirth"
-                name="dateOfBirth"
-                value={formData.dateOfBirth}
-                onChange={handleChange}
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="presentAddress"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Present Address
-              </label>
-              <input
-                type="text"
-                id="presentAddress"
-                name="presentAddress"
-                value={formData.presentAddress}
-                onChange={handleChange}
-                placeholder="Enter present address"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="permanentAddress"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Permanent Address
-              </label>
-              <input
-                type="text"
-                id="permanentAddress"
-                name="permanentAddress"
-                value={formData.permanentAddress}
-                onChange={handleChange}
-                placeholder="Enter permanent address"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="city"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                City
-              </label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                placeholder="Enter city"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="postalCode"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Postal Code
-              </label>
-              <input
-                type="text"
-                id="postalCode"
-                name="postalCode"
-                value={formData.postalCode}
-                onChange={handleChange}
-                placeholder="Enter postal code"
-                className={inputstyle}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="country"
-                className="block text-sm font-medium text-[#232323]"
-              >
-                Country
-              </label>
-              <input
-                type="text"
-                id="country"
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-                placeholder="Enter country"
-                className={inputstyle}
-              />
-            </div>
+            {Object.entries(formData).map(([key, value]) => (
+              <div key={key} className="space-y-2">
+                <label
+                  htmlFor={key}
+                  className="block text-sm font-medium text-text-primary"
+                >
+                  {key
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase())}
+                </label>
+                <input
+                  type={
+                    key === "email"
+                      ? "email"
+                      : key === "password"
+                        ? "password"
+                        : key === "dateOfBirth"
+                          ? "date"
+                          : "text"
+                  }
+                  id={key}
+                  name={key}
+                  value={value}
+                  onChange={handleChange}
+                  placeholder={`Enter ${key.toLowerCase().replace(/([A-Z])/g, " $1")}`}
+                  className={inputstyle}
+                />
+              </div>
+            ))}
           </div>
 
           <div className="flex w-full items-end justify-end">
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`transform rounded-xl bg-black px-12 py-2 font-semibold text-white transition-all duration-200 hover:bg-gray-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 ${isSubmitting ? "animate-pulse" : ""} `}
+              className={`transform rounded-xl bg-black px-12 py-2 font-semibold text-white transition-all duration-200 hover:bg-gray-800 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 ${isSubmitting ? "animate-pulse" : ""}`}
             >
               {isSubmitting ? "Saving..." : "Save"}
             </button>

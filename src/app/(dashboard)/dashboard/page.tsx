@@ -12,8 +12,8 @@ function Home() {
       <div className="grid grid-cols-1 flex-row gap-6 md:grid-cols-3">
         <div className="flex flex-col justify-between gap-2 md:col-span-2">
           <div className="flex items-center justify-between">
-            <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">My Cards</h1>
-            <h1 className="mb-4 cursor-pointer text-xl font-bold text-[#343C6A] transition-all hover:-translate-y-1 hover:text-gray-600">
+            <h1 className="mb-4 text-2xl font-bold text-main">My Cards</h1>
+            <h1 className="mb-4 cursor-pointer text-xl font-bold text-main transition-all hover:-translate-y-1 hover:text-gray-600">
               See all
             </h1>
           </div>
@@ -25,7 +25,7 @@ function Home() {
         </div>
 
         <div className="flex w-full flex-col justify-between">
-          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
+          <h1 className="mb-4 text-2xl font-bold text-main">
             Recent Transactions
           </h1>
 
@@ -35,9 +35,7 @@ function Home() {
 
       <div className="grid grid-cols-1 flex-row gap-6 md:grid-cols-3">
         <div className="md:col-span-2">
-          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
-            Weekly activity
-          </h1>
+          <h1 className="mb-4 text-2xl font-bold text-main">Weekly activity</h1>
 
           <div className="flex min-h-[20rem] w-full flex-col justify-center rounded-[25px] border bg-white">
             <ActivityChart />
@@ -45,7 +43,7 @@ function Home() {
         </div>
 
         <div className="w-full">
-          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
+          <h1 className="mb-4 text-2xl font-bold text-main">
             Expense Statistics
           </h1>
 
@@ -57,9 +55,7 @@ function Home() {
 
       <div className="grid grid-cols-1 flex-row gap-6 md:grid-cols-3">
         <div className="">
-          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
-            Quick Transfer
-          </h1>
+          <h1 className="mb-4 text-2xl font-bold text-main">Quick Transfer</h1>
 
           <div className="flex min-h-[20rem] w-full flex-col items-center justify-center rounded-[25px] border bg-white p-6">
             <QuickTransfer />
@@ -67,9 +63,7 @@ function Home() {
         </div>
 
         <div className="h-[20rem] items-center justify-center md:col-span-2">
-          <h1 className="mb-4 text-2xl font-bold text-[#343C6A]">
-            Balance History
-          </h1>
+          <h1 className="mb-4 text-2xl font-bold text-main">Balance History</h1>
 
           <BalanceChart />
         </div>

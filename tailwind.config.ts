@@ -11,6 +11,23 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        main: "#343C6A",
+        card: {
+          "dark-from": "#5B5A6F",
+          "dark-to": "#000000",
+          "light-text": "#718EBF",
+          border: "#DFEAF2",
+        },
+        input: {
+          bg: "#F5F7FA",
+          text: "#8BA3CB",
+          icon: "#718EBF",
+        },
+        text: {
+          primary: "#232323",
+          secondary: "#718EBF",
+        },
+        accent: "#396AFF",
       },
       keyframes: {
         "fade-in": {

@@ -1,7 +1,6 @@
 "use client";
-
 import { useState } from "react";
-import { BellDot, Menu, Search, Settings, X } from "lucide-react";
+import { BellDot, Menu, Search, Settings } from "lucide-react";
 import Image from "next/image";
 import PageTransition from "@/components/ui/PageTransition";
 import Aside from "@/components/ui/Aside";
@@ -18,9 +17,8 @@ function Layout({ children }: IPageProps) {
   };
 
   return (
-    <section className="flex h-screen w-screen bg-white md:bg-[#F5F7FA]">
+    <section className="flex h-screen w-screen bg-white md:bg-input-bg">
       <Aside isMobileMenuOpen={isMobileMenuOpen} toggleMenu={toggleMenu} />
-
       <main className="w-full overflow-y-scroll">
         <nav className="flex min-h-[4rem] w-full flex-col bg-white p-4">
           <div className="flex w-full max-w-7xl items-center justify-between px-6">
@@ -30,26 +28,22 @@ function Layout({ children }: IPageProps) {
               className="md:hidden"
               aria-label="Open menu"
             >
-              <Menu size={24} color={"#343C6A"} />
+              <Menu size={24} className="text-main" />
             </button>
-            <p className="text-lg font-bold text-[#343C6A] md:text-2xl">
-              Overview
-            </p>
+            <p className="text-lg font-bold text-main md:text-2xl">Overview</p>
             <div className="flex items-center justify-end gap-4 md:w-full">
-              <div className="hidden w-full max-w-md items-center gap-2 rounded-full bg-[#F5F7FA] px-6 py-2 md:flex">
-                <Search className="text-[#718EBF]" />
+              <div className="hidden w-full max-w-md items-center gap-2 rounded-full bg-input-bg px-6 py-2 md:flex">
+                <Search className="text-input-icon" />
                 <input
                   placeholder="Search for something"
-                  className="bg-transparent text-[#8BA3CB]"
+                  className="bg-transparent text-input-text"
                 />
               </div>
-
-              <div className="hidden h-[2.8rem] w-[2.8rem] items-center justify-center rounded-full bg-[#F5F7FA] md:flex">
-                <Settings color={"#718EBF"} />
+              <div className="hidden h-[2.8rem] w-[2.8rem] items-center justify-center rounded-full bg-input-bg md:flex">
+                <Settings className="text-input-icon" />
               </div>
-
-              <div className="hidden h-[2.8rem] w-[2.8rem] items-center justify-center rounded-full bg-[#F5F7FA] md:flex">
-                <BellDot color={"#396AFF"} />
+              <div className="hidden h-[2.8rem] w-[2.8rem] items-center justify-center rounded-full bg-input-bg md:flex">
+                <BellDot className="text-accent" />
               </div>
               <Image
                 width={35}
@@ -60,12 +54,11 @@ function Layout({ children }: IPageProps) {
               />
             </div>
           </div>
-
-          <div className="mt-4 flex w-full items-center gap-2 rounded-full bg-[#F5F7FA] px-6 py-3 md:hidden">
-            <Search className="text-[#718EBF]" />
+          <div className="mt-4 flex w-full items-center gap-2 rounded-full bg-input-bg px-6 py-3 md:hidden">
+            <Search className="text-input-icon" />
             <input
               placeholder="Search for something"
-              className="bg-transparent text-[#8BA3CB]"
+              className="bg-transparent text-input-text"
             />
           </div>
         </nav>

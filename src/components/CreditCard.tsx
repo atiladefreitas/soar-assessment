@@ -9,8 +9,8 @@ export function CreditCard({ variant = "dark" }: ICardProps) {
     <div
       className={`flex h-[15rem] w-full min-w-[22rem] flex-col justify-between overflow-hidden rounded-[20px] border ${
         variant === "dark"
-          ? "bg-gradient-to-br from-[#5B5A6F] to-[#000000] text-white"
-          : "bg-white text-[#343C6A]"
+          ? "bg-gradient-to-br from-card-dark-from to-card-dark-to text-white"
+          : "bg-white text-main"
       }`}
     >
       <div>
@@ -18,7 +18,7 @@ export function CreditCard({ variant = "dark" }: ICardProps) {
           <div className="space-y-1">
             <p
               className={`text-sm ${
-                variant === "dark" ? "text-white/70" : "text-[#718EBF]"
+                variant === "dark" ? "text-white/70" : "text-card-light-text"
               }`}
             >
               Balance
@@ -36,12 +36,11 @@ export function CreditCard({ variant = "dark" }: ICardProps) {
             }
           />
         </div>
-
         <div className="flex items-start justify-between p-6 py-3">
           <div className="space-y-1">
             <p
               className={`text-xs uppercase ${
-                variant === "dark" ? "text-white/70" : "text-[#718EBF]"
+                variant === "dark" ? "text-white/70" : "text-card-light-text"
               }`}
             >
               Card Holder
@@ -51,7 +50,7 @@ export function CreditCard({ variant = "dark" }: ICardProps) {
           <div className="space-y-1 text-right">
             <p
               className={`text-xs uppercase ${
-                variant === "dark" ? "text-white/70" : "text-[#718EBF]"
+                variant === "dark" ? "text-white/70" : "text-card-light-text"
               }`}
             >
               Valid Thru
@@ -60,18 +59,20 @@ export function CreditCard({ variant = "dark" }: ICardProps) {
           </div>
         </div>
       </div>
-
       <div
-        className={` ${variant === "dark" ? "bg-white/15" : "border-t border-[#DFEAF2] bg-white"} flex items-center justify-between p-6`}
+        className={`${
+          variant === "dark"
+            ? "bg-white/15"
+            : "border-t border-card-border bg-white"
+        } flex items-center justify-between p-6`}
       >
         <p
           className={`text-xl font-medium tracking-wider ${
-            variant === "dark" ? "text-white/90" : "text-[#343C6A]"
+            variant === "dark" ? "text-white/90" : "text-main"
           }`}
         >
           3778 **** **** 1234
         </p>
-
         <Image
           height={40}
           width={40}
